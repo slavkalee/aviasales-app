@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 
 const TabContainer = styled.div`
@@ -27,6 +27,7 @@ const ListItem = styled.li`
   border: 1px solid #dfe5ec;
   box-sizing: border-box;
   cursor: pointer;
+  transition: 0.2s;
   &.active {
     background: #2196f3;
     color: #ffffff;
@@ -42,9 +43,7 @@ const ListItem = styled.li`
   }
 `;
 
-
-
-function SortingTabs({ tabSortState, setSort }) {
+const SortingTabs = memo(({ tabSortState, setSort }) => {
   return (
     <TabContainer>
       <List>
@@ -63,6 +62,6 @@ function SortingTabs({ tabSortState, setSort }) {
       </List>
     </TabContainer>
   );
-}
+});
 
 export default SortingTabs;

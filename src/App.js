@@ -11,7 +11,7 @@ import SortingTabs from "./components/SortingTabs";
 const Wrapper = styled.div`
   background: #d9e4ec;
   width: 100%;
-  height: ${(props) => (props.height ? '100%' : '100vh')};
+  height: ${({height}) => (height ? '100%' : '100vh')};
 `;
 
 const Container = styled.div`
@@ -96,7 +96,7 @@ function App() {
     }, 0);
   }
 
-  const sortedData = useMemo(() => {
+  const filteredSortedData = useMemo(() => {
     return data
       .filter((item) => {
         const transplantCount1 = item.segments[0].stops.length;
@@ -131,7 +131,7 @@ function App() {
           />
           <TicketContainer>
             <SortingTabs tabSortState={isCheap} setSort={setCheap} />
-            <TicketList data={sortedData} />
+            <TicketList data={filteredSortedData} />
           </TicketContainer>
         </BodyContainer>
       </Container>

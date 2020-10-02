@@ -75,14 +75,16 @@ const TicketList = ({ data }) => {
     return <Loader />;
   }
 
+  console.log(data);
+
   return (
     <>
-      {data.map(({ price, segments }) => (
+      {data.map(({ price, segments, carrier }) => (
         <Container key={`key_${price}`}>
           <CardHeader>
             <Price>{price} Р </Price>
             <Carrier>
-              <Img src={img} />
+              <Img src={`//pics.avs.io/99/36/${carrier}.png`} />
             </Carrier>
           </CardHeader>
 
